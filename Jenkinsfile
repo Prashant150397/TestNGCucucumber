@@ -21,7 +21,7 @@ pipeline {
         {
             steps
             {
-                echoo 'Build App'
+                echo 'Build App'
             }
         }
     }
