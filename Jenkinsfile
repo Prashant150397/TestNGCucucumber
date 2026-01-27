@@ -25,14 +25,4 @@ pipeline {
             }
         }
     }
-    
-post {
-        always 
-        {
-        failure 
-        {
-            emailext body: 'Summary', subject: 'Learning', to: 'kprashantrajput001@gmail.com'
-        }
-    }
-}
 }
