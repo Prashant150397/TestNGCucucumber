@@ -37,6 +37,7 @@ pipeline {
                 always {
                     cucumber(
                         buildStatus: 'UNSTABLE',
+                        fileIncludePattern: '**/*.json',
                         jsonReportDirectory: 'target/'
                     )
                 }
