@@ -22,7 +22,7 @@ public class hooks {
     public void setup() {
         ConfigReader.init();
         DriverFactory.initDriver();
-        DriverFactory.getDriver().get(ConfigReader.get("url"));
+        //DriverFactory.getDriver().get(ConfigReader.get("url"));
     }
 
     @After

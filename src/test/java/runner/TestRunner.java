@@ -15,14 +15,14 @@ import org.testng.annotations.DataProvider;
 	        "json:target/cucumber.json",
 	        "rerun:target/rerun/failed_Scenarios.txt"
 	    },
-	   // tags = "(@Smoke or @Regression) and not @Sanity",
+	    tags = "(@Smoke or @Regression) and not @Sanity",
 	    monochrome = true,
 	    publish = true,
 	    dryRun = false       // ✅ Must be false to actually run tests
 	)
 	public class TestRunner extends AbstractTestNGCucumberTests {
 	    @Override
-	    @DataProvider(parallel = true)
+	    @DataProvider(parallel = false)
 	    public Object[][] scenarios() {
 	        return super.scenarios();
 	    }

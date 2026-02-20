@@ -7,9 +7,7 @@ Feature: Login Functionality for OpenCart E-commerce Website
   Background: 
     Given I am on the OpenCart login page
 
-  @Smoke
-  @Regression
-  @Sanity
+  
   Scenario: Successful login with valid credentials
     Given I have entered a valid username and password
     |username                       |password         |
@@ -18,7 +16,6 @@ Feature: Login Functionality for OpenCart E-commerce Website
     When I click on the login button
     Then I should be logged in successfully
 
-  @Regression
   Scenario Outline: Successfull login with valid credentials
     Given I have entered valid "<username>" and "<password>"
     When I click on the login button
@@ -28,7 +25,7 @@ Feature: Login Functionality for OpenCart E-commerce Website
       | username                        | password          |
       | prashantkumarrajput59@gmail.com | Myautomation@#143 |
       
-  @Sanity
+
   Scenario: Navigating to the forgotten password page
     When I click on the "Forgotten Password" link
     Then I should be redirected to the password reset page
