@@ -11,50 +11,50 @@ import util.ConfigReader;
 
 public class DriverFactory {
 
-    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-    
-    public static WebDriver initDriver() {
+	private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-        String browser = ConfigReader.get("browser");
-        boolean isHeadless = Boolean.parseBoolean(ConfigReader.get("headless"));
-        WebDriver driver = null;
+	public static WebDriver initDriver() {
 
-        switch (browser.toLowerCase()) {
+		String browser = ConfigReader.get("browser");
+		boolean isHeadless = Boolean.parseBoolean(ConfigReader.get("headless"));
+		WebDriver driver = null;
 
-            case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                if (isHeadless) {
-                    chromeOptions.addArguments("--headless=new");
-                    chromeOptions.addArguments("--disable-gpu");
-                    chromeOptions.addArguments("--window-size=1920,1080");
-                }
-                driver = new ChromeDriver(chromeOptions);
-                break;
+		switch (browser.toLowerCase()) {
 
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                if (isHeadless) {
-                    edgeOptions.addArguments("--headless=new");
-                    edgeOptions.addArguments("--disable-gpu");
-                    edgeOptions.addArguments("--window-size=1920,1080");
-                }
-                driver = new EdgeDriver(edgeOptions);
-                break;
+		case "chrome":
+			ChromeOptions chromeOptions = new ChromeOptions();
+			if (isHeadless) {
+				chromeOptions.addArguments("--headless=new");
+				chromeOptions.addArguments("--disable-gpu");
+				chromeOptions.addArguments("--window-size=1920,1080");
+			}
+			driver = new ChromeDriver(chromeOptions);
+			break;
 
-            default:
-                throw new RuntimeException("Browser NOT supported: " + browser);
-        }
+		case "edge":
+			EdgeOptions edgeOptions = new EdgeOptions();
+			if (isHeadless) {
+				edgeOptions.addArguments("--headless=new");
+				edgeOptions.addArguments("--disable-gpu");
+				edgeOptions.addArguments("--window-size=1920,1080");
+			}
+			driver = new EdgeDriver(edgeOptions);
+			break;
 
-        tlDriver.set(driver);
-        return getDriver();
-    }
+		default:
+			throw new RuntimeException("Browser NOT supported: " + browser);
+		}
 
-    public static WebDriver getDriver() {
-        return tlDriver.get();
-    }
+		tlDriver.set(driver);
+		return getDriver();
+	}
 
-    public static void removeDriver() {
-        getDriver().quit();
-        tlDriver.remove();
-    }
+	public static WebDriver getDriver() {
+		return tlDriver.get();
+	}
+
+	public static void removeDriver() {
+		getDriver().quit();
+		tlDriver.remove();
+	}
 }

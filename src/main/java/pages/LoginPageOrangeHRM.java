@@ -15,7 +15,7 @@ public class LoginPageOrangeHRM {
 	private final By usernameField=By.xpath("//input[@name='username']");
 	private final By passwordField=By.xpath("//input[@name='password']");
 	private final By loginButton=By.xpath("//button[normalize-space(text()='Login')]");
-	
+
 	WebDriverWait wait=new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10));
 	public void isUserNameDisplayed()
 	{
@@ -27,9 +27,8 @@ public class LoginPageOrangeHRM {
 		}finally {
 			System.out.println("usenrname should display");
 		}
-		
 	}
-	
+
 	public void isPasswordDisplayed()
 	{
 		try {
@@ -39,26 +38,21 @@ public class LoginPageOrangeHRM {
 		{
 			System.out.println(e.getMessage());
 		}
-		
 	}
-	
+
 	public void enterUsernameAndPassword(String username,String password)
 	{
 		try {
 			WebElement loginUsername=wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField));
 			WebElement loginPassword=wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
-		//WebElement loginUsername=DriverFactory.getDriver().findElement(usernameField);
-		//WebElement loginPassword=DriverFactory.getDriver().findElement(passwordField);
-		
-		
-		loginUsername.sendKeys(username);
-		loginPassword.sendKeys(password);
+			loginUsername.sendKeys(username);
+			loginPassword.sendKeys(password);
 		}
 		catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	public void clickOnLoginButton()
 	{
 		WebElement login=DriverFactory.getDriver().findElement(loginButton);
