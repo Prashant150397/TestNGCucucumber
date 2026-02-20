@@ -11,11 +11,11 @@ import org.testng.annotations.DataProvider;
 	    plugin = {
 	        "pretty",
 	        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-	        "html:target/cucumber-reports", 
+	        "html:target/cucumber-reports.html", 
 	        "json:target/cucumber.json",
 	        "rerun:target/rerun/failed_Scenarios.txt"
 	    },
-	    tags = "(@Smoke or @Regression) and not @Sanity",
+	   // tags = "(@Smoke or @Regression) and not @Sanity",
 	    monochrome = true,
 	    publish = true,
 	    dryRun = false       // ✅ Must be false to actually run tests

@@ -12,6 +12,9 @@ Feature: Login Functionality for OpenCart E-commerce Website
   @Sanity
   Scenario: Successful login with valid credentials
     Given I have entered a valid username and password
+    |username                       |password         |
+    |prashantkumarrajput59@gmail.com|Myautomation@#143|
+    |prashantarrajput59@gmail.com   |Myautomation@#143|
     When I click on the login button
     Then I should be logged in successfully
 

@@ -1,5 +1,6 @@
 package com.qa.mystepdefs;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -27,10 +28,19 @@ public class LoginStepDefinitions {
     }
 
     @Given("I have entered a valid username and password")
-    public void i_have_entered_a_valid_username_and_password() {
+    public void i_have_entered_a_valid_username_and_password(DataTable datatable ) {
+    	List<Map<String,String>> dataTables=datatable.asMaps();
+    	
+    	// here we use hashmap as scenarioContext
     	String getEmail=data.get("email");
-        loginPage.enterEmail(getEmail);
-        loginPage.enterPassword("Myautomation@#143");
+    	// Use Data table
+    	for (Map<String, String> user : dataTables) {
+    		 String email = user.get("username");
+    	        String password = user.get("password");
+    		loginPage.enterEmail(email);
+            loginPage.enterPassword(password);
+    	}
+        
     }
 
     @Given("I have entered valid {string} and {string}")

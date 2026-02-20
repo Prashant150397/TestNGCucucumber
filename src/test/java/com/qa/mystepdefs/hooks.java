@@ -18,7 +18,7 @@ import util.ConfigReader;
 
 public class hooks {
 
-    @Before
+    @Before(order=-1)
     public void setup() {
         ConfigReader.init();
         DriverFactory.initDriver();
