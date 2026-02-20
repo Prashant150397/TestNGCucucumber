@@ -25,6 +25,7 @@ public class hooks {
 	// ===== SUITE LEVEL HOOKS =====
 	// ==============================
 
+	// Executes a method before all scenario
 	@BeforeAll
 	public static void beforeAll() {
 		suiteStartTime = System.currentTimeMillis();
@@ -32,6 +33,12 @@ public class hooks {
 		//DBManager.connect();
 	}
 
+	/*
+	 * @BeforeAll(order=1) public static void printEnvironment() {
+	 * System.out.println("Running on Environment: " + ConfigReader.get("env")); }
+	 */
+
+	// Executes a method after all scenarios
 	@AfterAll
 	public static void afterAll() {
 		long suiteEndTime = System.currentTimeMillis();
@@ -46,6 +53,7 @@ public class hooks {
 	// ===== SCENARIO LEVEL HOOKS ======
 	// ==================================
 
+	// Execute method before each scenario.
 	@Before(order = 0)
 	public void loadConfig(Scenario scenario) {
 		ConfigReader.init();
@@ -53,11 +61,14 @@ public class hooks {
 		System.out.println("\n--- Starting Scenario: " + scenario.getName() + " ---");
 	}
 
+	// Execute method before each scenario.
+
 	@Before(order = 1)
 	public void initDriver() {
 		DriverFactory.initDriver();
 	}
 
+	// Execute method before each scenario.
 	@Before(order = 2)
 	public void setupBrowser() {
 		WebDriver driver = DriverFactory.getDriver();
@@ -70,6 +81,7 @@ public class hooks {
 	// ===== STEP LEVEL HOOKS ===========
 	// ==================================
 
+	// Execute method before each step.
 	@BeforeStep
 	public void beforeStep(Scenario scenario) {
 		System.out.println("Executing Step in Scenario: " + scenario.getName());
@@ -87,6 +99,7 @@ public class hooks {
 	// ==================================
 
 
+	// Execute method after each scenario.
 	@After
 	public void tearDown(Scenario scenario) {
 
