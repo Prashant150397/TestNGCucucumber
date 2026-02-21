@@ -14,6 +14,7 @@ Feature: Cart Functionality for OpenCart E-commerce Website
     
   @Smoke
   @Regression
+  @Sanity
   Scenario Outline: Login is successful
     Given i enter "<username>" and "<password>"
     When i clic on login button

@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
 	//private WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10))
 
