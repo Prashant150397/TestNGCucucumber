@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Cucumber Suite" parallel="tests" thread-count="3">
+<suite name="Cucumber Suite" parallel="tests" thread-count="2">
     <test name="Run Test1">
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+    
+    <test name="Run Test2">
         <classes>
             <class name="runner.TestRunner"/>
         </classes>
