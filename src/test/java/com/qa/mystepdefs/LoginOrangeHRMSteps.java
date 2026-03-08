@@ -20,7 +20,7 @@ public class LoginOrangeHRMSteps {
 		loginPageOrangeHRM.isUserNameDisplayed();
 		loginPageOrangeHRM.isPasswordDisplayed();
 	}
-	@Given("i enter {string} and {string}")
+	@Given("^i enter \"(.*)\" and \"(.*)\"$")
 	public void i_enter_and(String username, String password) {
 		loginPageOrangeHRM.enterUsernameAndPassword(username, password);
 	}
